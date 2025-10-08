@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:16-alpine
+    container_name: solana-trader-db
+    environment:
+      POSTGRES_USER: ${DB_USER:-solanatrader}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-changeme}
+      POSTGRES_DB: ${DB_NAME:-solana_trader_bot}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./sql:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-solanatrader}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # Telegram Trading Bot
+  bot:
+    build: .
+    container_name: solana-trading-bot
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      # Telegram Configuration
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
+      PORT: ${PORT:-5001}
+
+      # Database Configuration
+      DATABASE_URL: postgresql://${DB_USER:-solanatrader}:${DB_PASSWORD:-changeme}@postgres:5432/${DB_NAME:-solana_trader_bot}
+
+      # Encryption
+      FERNET_ENCRYPTION_KEY: ${FERNET_ENCRYPTION_KEY}
+
+      # Solana RPC
+      SOLANA_RPC_URL: ${SOLANA_RPC_URL}
+
+      # Jupiter API
+      JUPITER_QUOTE_URL: ${JUPITER_QUOTE_URL:-https://quote-api.jup.ag/v6/quote}
+      JUPITER_SWAP_URL: ${JUPITER_SWAP_URL:-https://quote-api.jup.ag/v6/swap}
+
+      # External APIs
+      BIRDEYE_API_KEY: ${BIRDEYE_API_KEY}
+
+      # Platform Fee
+      PLATFORM_FEE_WALLET: ${PLATFORM_FEE_WALLET}
+      PLATFORM_FEE_BPS: ${PLATFORM_FEE_BPS:-100}
+    ports:
+      - "${PORT:-5001}:5001"
+    restart: unless-stopped
+    volumes:
+      - ./logs:/app/logs
+
+volumes:
+  postgres_data:
+    driver: local
