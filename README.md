@@ -35,9 +35,9 @@
 
 The bot is live and ready to use! Start trading Solana tokens immediately:
 
-**|> [Start Awesome Solana Trader Bot](https://t.me/YourBotUsernameBot) <|**
+**|> [Start Awesome Solana Trader Bot](https://t.me/awesome_solana_trader_bot) <|**
 
-> Simply click the link above or search for `@YourBotUsernameBot` in Telegram. Type `/start` to begin!
+> Simply click the link above or search for `@awesome_solana_trader_bot` in Telegram. Type `/start` to begin!
 
 ### Getting Started:
 1. Click the bot link above
