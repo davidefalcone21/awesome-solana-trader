@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Awesome Solana Trader](https://github.com/user-attachments/assets/d347234e-3e81-4a0f-8caf-cb5d14e0afcc)
+![Awesome Solana Trader](https://github.com/user-attachments/assets/7cd02977-a894-4838-af1a-54090bd27a7d)
 
 **A powerful Telegram bot for trading SPL tokens on Solana with automated stop-loss and take-profit orders**
 
@@ -17,10 +17,10 @@
 
 ## Screenshots & Demo
 
-![Main Interface](https://github.com/user-attachments/assets/af90dcc7-41c2-4b57-9195-fa8111454e1b)
-![Buy Flow](https://github.com/user-attachments/assets/058548e1-3147-4e6f-bdff-43ea37f7be87)
-![Portfolio View](https://github.com/user-attachments/assets/35b7027d-3106-4766-bb56-c49d9a2c1ad5)
-![Stop Loss View](https://github.com/user-attachments/assets/2cb89576-0f88-4931-921c-dc016af4082a)
+![Main Interface](https://github.com/user-attachments/assets/d601e894-4ba5-46d0-832e-7466906ed870)
+![Buy Flow](https://github.com/user-attachments/assets/0b581e74-b993-46e0-8f41-146c20147c2c)
+![Portfolio View](https://github.com/user-attachments/assets/aa4984a4-b4f8-4958-ab1b-e9d527b6bc64)
+![Stop Loss View](https://github.com/user-attachments/assets/830e5b90-15ab-4ca0-aba4-3a1a46047b51)
 
 ## Features
 
